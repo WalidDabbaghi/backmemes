@@ -5,6 +5,7 @@ const app = express();
 const connectDB = require("./Config/dbConnect");
 const cloudinary = require("./Config/cloudinary");
 require("dotenv").config();
+console.log("🔑 JWT_SECRET:", process.env.JWT_SECRET);
 connectDB();
 app.use(express.json());
 app.use(cors());
