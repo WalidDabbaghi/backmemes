@@ -35,7 +35,7 @@ const registerController = async (req, res) => {
             _id: newUserToken._id,
             name: newUserToken.name,
           };
-          const token = await jwt.sign(payload, process.env.SecretOrkey, {
+          const token = await jwt.sign(payload, process.env.JWT_SECRET, {
             expiresIn: 3000 * 60 * 24 * 365,
           });
           res.status(200).send({
@@ -72,7 +72,7 @@ const loginController =  async (req, res) => {
       _id: searchedUser._id,
       name: searchedUser.name,
     };
-    const token = await jwt.sign(payload, process.env.SecretOrkey, {
+    const token = await jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: 3000 * 60 * 24 * 365,
     });
 
